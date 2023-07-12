@@ -35,18 +35,24 @@ $(document).ready(function(){
 
     // typing text animation script
     var typed = new Typed(".typing", {
-        strings: ["Azure Architect", "Cloud Enginner"],
+        strings: ["Full Stack Web Developer","Frontend Developer"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
     });
 
     var typed = new Typed(".typing-2", {
-        strings: ["Cloud Expert, J2EE Expert"],
+        strings: ["Javascript"],
         typeSpeed: 90,
         backSpeed: 60,
         loop: true
     });
+    var typed = new Typed(".typing-3",{
+        strings:["Web Developer"],
+        typeSpeed: 90,
+        backSpeed: 60,
+        loop: true
+    })
 
     // owl carousel script
     $('.carousel').owlCarousel({
