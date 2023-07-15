@@ -1,0 +1,208 @@
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 5.1.45-community MySQL Community Server (GPL)
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use devikadb;
+Database changed
+mysql> create table college_user(id int auto_increment,name VARCHAR(100),email VARCHAR(50),location VARCHAR(50),dept VARCHAR(100));
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+mysql> create table college_user(id int AUTO_INCREMENT,name VARCHAR(100),email VARCHAR(50),location VARCHAR(50),dept VARCHAR(100));
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+mysql> create table college_user(name VARCHAR(100),email VARCHAR(50),location VARCHAR(50),dept VARCHAR(100));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_devikadb |
++--------------------+
+| college_user       |
+| college_users      |
+| user               |
+| users              |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> insert into college_user(name,email,location,dept)values('devika','devika@gmail.com','secunderabad','ece');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into college_user(name,email,location,dept)values('mounika','mounika@gmail.com','saidabad','ece'),('sravani','sravani@gmail.com','hitech city','ece'),('sanjana','sanjana@gmail.com','medchal',ece');
+    '> '
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '');
+'' at line 1
+mysql>  insert into college_user(name,email,location,dept)values('mounika','mounika@gmail.com','saidabad','ece'),('sravani','sravani@gmail.com','hitech city','ece'),('sanjana','sanjana@gmail.com','medchal','ece');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from college_user;
++---------+-------------------+--------------+------+
+| name    | email             | location     | dept |
++---------+-------------------+--------------+------+
+| devika  | devika@gmail.com  | secunderabad | ece  |
+| mounika | mounika@gmail.com | saidabad     | ece  |
+| sravani | sravani@gmail.com | hitech city  | ece  |
+| sanjana | sanjana@gmail.com | medchal      | ece  |
++---------+-------------------+--------------+------+
+4 rows in set (0.00 sec)
+
+mysql> alter table college_user phonenumber INT;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'phonenumber INT' at line 1
+mysql>  alter table college_user add phonenumber INT;
+Query OK, 4 rows affected (0.02 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> update college_user set phonenumber=9876543210 where name='devika';
+ERROR 1264 (22003): Out of range value for column 'phonenumber' at row 1
+mysql>  alter table college_user phonenumber double;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'phonenumber double' at line 1
+mysql>  alter table college_user add phonenumber long int;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'int' at line 1
+mysql>  alter table college_user add phonenumber;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql>  alter table college_user add age VARCHAR(3);
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> update college_user set age='19' where name='devika';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from college_user;
++---------+-------------------+--------------+------+-------------+------+
+| name    | email             | location     | dept | phonenumber | age  |
++---------+-------------------+--------------+------+-------------+------+
+| devika  | devika@gmail.com  | secunderabad | ece  |        NULL | 19   |
+| mounika | mounika@gmail.com | saidabad     | ece  |        NULL | NULL |
+| sravani | sravani@gmail.com | hitech city  | ece  |        NULL | NULL |
+| sanjana | sanjana@gmail.com | medchal      | ece  |        NULL | NULL |
++---------+-------------------+--------------+------+-------------+------+
+4 rows in set (0.00 sec)
+
+mysql>  update college_user set age='20' where name='mounika';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update college_user set age='23' where name='sravani';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update college_user set age='25' where name='sanjana';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from college_user;
++---------+-------------------+--------------+------+-------------+------+
+| name    | email             | location     | dept | phonenumber | age  |
++---------+-------------------+--------------+------+-------------+------+
+| devika  | devika@gmail.com  | secunderabad | ece  |        NULL | 19   |
+| mounika | mounika@gmail.com | saidabad     | ece  |        NULL | 20   |
+| sravani | sravani@gmail.com | hitech city  | ece  |        NULL | 23   |
+| sanjana | sanjana@gmail.com | medchal      | ece  |        NULL | 25   |
++---------+-------------------+--------------+------+-------------+------+
+4 rows in set (0.00 sec)
+
+mysql> update college_ser set phonenumber=9876543210 where name='devika';
+ERROR 1146 (42S02): Table 'devikadb.college_ser' doesn't exist
+mysql> update college_user set phonenumber=9876543210 where name='devika';
+ERROR 1264 (22003): Out of range value for column 'phonenumber' at row 1
+mysql> delete from college_user where name='devika';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from college_user;
++---------+-------------------+-------------+------+-------------+------+
+| name    | email             | location    | dept | phonenumber | age  |
++---------+-------------------+-------------+------+-------------+------+
+| mounika | mounika@gmail.com | saidabad    | ece  |        NULL | 20   |
+| sravani | sravani@gmail.com | hitech city | ece  |        NULL | 23   |
+| sanjana | sanjana@gmail.com | medchal     | ece  |        NULL | 25   |
++---------+-------------------+-------------+------+-------------+------+
+3 rows in set (0.01 sec)
+
+mysql> insert into college_user(name,email,location,dept)values('devika','devika@gmail.com','secunderabad','ece');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from college_user;
++---------+-------------------+--------------+------+-------------+------+
+| name    | email             | location     | dept | phonenumber | age  |
++---------+-------------------+--------------+------+-------------+------+
+| mounika | mounika@gmail.com | saidabad     | ece  |        NULL | 20   |
+| sravani | sravani@gmail.com | hitech city  | ece  |        NULL | 23   |
+| sanjana | sanjana@gmail.com | medchal      | ece  |        NULL | 25   |
+| devika  | devika@gmail.com  | secunderabad | ece  |        NULL | NULL |
++---------+-------------------+--------------+------+-------------+------+
+4 rows in set (0.00 sec)
+
+mysql> update college_user set age='19' where name='devika';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from college_user;
++---------+-------------------+--------------+------+-------------+------+
+| name    | email             | location     | dept | phonenumber | age  |
++---------+-------------------+--------------+------+-------------+------+
+| mounika | mounika@gmail.com | saidabad     | ece  |        NULL | 20   |
+| sravani | sravani@gmail.com | hitech city  | ece  |        NULL | 23   |
+| sanjana | sanjana@gmail.com | medchal      | ece  |        NULL | 25   |
+| devika  | devika@gmail.com  | secunderabad | ece  |        NULL | 19   |
++---------+-------------------+--------------+------+-------------+------+
+4 rows in set (0.01 sec)
+
+mysql> delete from college_user where phonenumber;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from college_user;
++---------+-------------------+--------------+------+-------------+------+
+| name    | email             | location     | dept | phonenumber | age  |
++---------+-------------------+--------------+------+-------------+------+
+| mounika | mounika@gmail.com | saidabad     | ece  |        NULL | 20   |
+| sravani | sravani@gmail.com | hitech city  | ece  |        NULL | 23   |
+| sanjana | sanjana@gmail.com | medchal      | ece  |        NULL | 25   |
+| devika  | devika@gmail.com  | secunderabad | ece  |        NULL | 19   |
++---------+-------------------+--------------+------+-------------+------+
+4 rows in set (0.00 sec)
+
+mysql> update college_user set phonenumber=12345 where name='devika';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from college_user;
++---------+-------------------+--------------+------+-------------+------+
+| name    | email             | location     | dept | phonenumber | age  |
++---------+-------------------+--------------+------+-------------+------+
+| mounika | mounika@gmail.com | saidabad     | ece  |        NULL | 20   |
+| sravani | sravani@gmail.com | hitech city  | ece  |        NULL | 23   |
+| sanjana | sanjana@gmail.com | medchal      | ece  |        NULL | 25   |
+| devika  | devika@gmail.com  | secunderabad | ece  |       12345 | 19   |
++---------+-------------------+--------------+------+-------------+------+
+4 rows in set (0.00 sec)
+
+mysql> update college_user set phonenumber=56789 where name='mounika';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update college_user set phonenumber=25678 where name='mounika';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update college_user set phonenumber=98765 where name='sanjana';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update college_user set phonenumber=65478 where name='sravani';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from college_user;
++---------+-------------------+--------------+------+-------------+------+
+| name    | email             | location     | dept | phonenumber | age  |
++---------+-------------------+--------------+------+-------------+------+
+| mounika | mounika@gmail.com | saidabad     | ece  |       25678 | 20   |
+| sravani | sravani@gmail.com | hitech city  | ece  |       65478 | 23   |
+| sanjana | sanjana@gmail.com | medchal      | ece  |       98765 | 25   |
+| devika  | devika@gmail.com  | secunderabad | ece  |       12345 | 19   |
++---------+-------------------+--------------+------+-------------+------+
+4 rows in set (0.00 sec)
+
+mysql>
