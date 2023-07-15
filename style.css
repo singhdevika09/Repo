@@ -73,7 +73,7 @@ section .title::after{
     font-size: 20px;
     color: crimson;
     padding: 0 5px;
-    background: #fff;
+    background: #0c0c0c;
     transform: translateX(-50%);
 }
 
@@ -105,7 +105,7 @@ section .title::after{
     transition: all 0.3s ease;
 }
 .navbar.sticky .logo a span{
-    color: #fff;
+    color: #4754e2e0;
 }
 .navbar .menu li{
     list-style: none;
@@ -113,7 +113,7 @@ section .title::after{
 }
 .navbar .menu li a{
     display: block;
-    color: #fff;
+    color: #f9f2f2;
     font-size: 18px;
     font-weight: 500;
     margin-left: 25px;
@@ -128,7 +128,7 @@ section .title::after{
 
 /* menu btn styling */
 .menu-btn{
-    color: #fff;
+    color: #efeaea;
     font-size: 23px;
     cursor: pointer;
     display: none;
@@ -142,7 +142,7 @@ section .title::after{
     bottom: 10px;
     text-align: center;
     line-height: 45px;
-    color: #fff;
+    color: #fffcfc;
     z-index: 9999;
     font-size: 30px;
     border-radius: 6px;
@@ -167,7 +167,7 @@ section .title::after{
     display: flex;
     background: url("images/banner.jpg") no-repeat center;
     height: 100vh;
-    color: #fff;
+    color: #1160f3;
     min-height: 500px;
     background-size: cover;
     background-attachment: fixed;
